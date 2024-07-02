@@ -31,6 +31,8 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
+
+
         memberRepository.findByName(member.getName())
                 // optional 을 바로 반환하면 안좋다.
                 // ctrl + alt + v

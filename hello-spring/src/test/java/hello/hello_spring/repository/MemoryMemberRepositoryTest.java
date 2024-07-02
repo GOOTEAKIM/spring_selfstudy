@@ -29,7 +29,7 @@ class MemoryMemberRepositoryTest {
         repository.save(member);
         Member result = repository.findById(member.getId()).get();
 
-        assertThat(member).isEqualTo(result);
+        assertThat(result).isEqualTo(member);
         // alt + enter 하면 9번 줄이 생긴다.
         // member가 result 랑 같애? !!
     }
@@ -41,7 +41,7 @@ class MemoryMemberRepositoryTest {
         repository.save(member1);
 
         Member member2 = new Member();
-        member2.setName("spring1");
+        member2.setName("spring2");
         repository.save(member2);
 
         // shift + f6
@@ -60,7 +60,6 @@ class MemoryMemberRepositoryTest {
         Member member2 = new Member();
         member2.setName("spring2");
         repository.save(member2);
-
 
         List<Member> result = repository.findAll();
 

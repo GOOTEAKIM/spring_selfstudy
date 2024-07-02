@@ -9,8 +9,16 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+
+    // ctrl + shift + T : 테스트 자동으로 생성
+    private final MemberRepository memberRepository;
+
+    // alt + insert -> constructor 생성
     // 회원 가입
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public Long join(Member member) {
 
@@ -33,7 +41,7 @@ public class MemberService {
 
 
     // 전체 회원 조회
-    private List<Member> findMember() {
+    private List<Member> findMembers() {
         return memberRepository.findAll();
     }
 

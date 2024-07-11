@@ -3,19 +3,21 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OrderServiceImpl implements OrderService {
+//@RequiredArgsConstructor
 
+public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository;
+
     private final DiscountPolicy discountPolicy;
 
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
         this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
+        this.discountPolicy = rateDiscountPolicy;
     }
 
     //    private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
@@ -33,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 
     // 테스트 용도
 
-    public MemberRepository getMemberRepository() {
-        return memberRepository;
-    }
+//    public MemberRepository getMemberRepository() {
+//        return memberRepository;
+//    }
 }
